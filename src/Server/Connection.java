@@ -2,16 +2,19 @@ package Server;
 import java.net.*;
 import java.io.*;
 public class Connection extends Thread {
+      
+      // initialize input output stream
 	  DataInputStream in;
 	  DataOutputStream out;
 	  Socket clientSocket;
 	  Services availableServices;
+	  
 	  public Connection (Socket aClientSocket, Services aS) {
 	    try {
-	    	  availableServices = aS;
-	      clientSocket = aClientSocket;
-	      in = new DataInputStream( clientSocket.getInputStream());
-	      out =new DataOutputStream( clientSocket.getOutputStream());
+		  availableServices = aS;
+		  clientSocket = aClientSocket;
+		  in =  new DataInputStream( clientSocket.getInputStream());
+		  out = new DataOutputStream( clientSocket.getOutputStream());
 	    } catch(IOException e) {
 	       System.out.println("Connection:"+e.getMessage());
 	} 

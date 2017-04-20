@@ -20,11 +20,14 @@ public class ServerTCP extends Thread{
 		{
 			listenSocket = new ServerSocket(serverPort);
 			while(true) {
-				System.out.println("Server listening for a connection");
+				// listen and accept the incoming connection
+			      	System.out.println("Server listening for a connection");
 				Socket clientSocket = listenSocket.accept();
+				
+				// create new connection with connected socket
 				System.out.println("Received connection ");
 				Connection c = new Connection(clientSocket, TCPService);
-				c.start();
+				c.run();
 				}
 			}
 		catch(IOException e)

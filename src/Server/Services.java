@@ -1,6 +1,12 @@
 package Server;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
+
 public class Services {
 	private ArrayList<Server> ServerList;
 	private HashMap<String, Resource> ResourceList;
@@ -25,7 +31,14 @@ public class Services {
 	}
 	public void query(Boolean relay, Resource toQuery)
 	{
-		
+	      try{
+		    String name = toQuery.getName();
+		    
+	      }catch(IOException e){
+		    e.printStackTrace();
+	      }
+	      
+	      
 	}
 	public void fetch(Resource toFetch)
 	{

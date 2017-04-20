@@ -13,10 +13,10 @@ public class ClientTCP extends Thread {
 	}
 	public void run()
 {
-		
+	      // running the client by sending message
 
-	
 	  try{
+	
 	    ClientSocket = new Socket("localhost", serverPort);
 	    System.out.println("Connection Established");
 	    DataInputStream in = new DataInputStream( ClientSocket.getInputStream());
@@ -25,6 +25,8 @@ public class ClientTCP extends Thread {
 	    out.writeUTF(message);    
 	    String data = in.readUTF();   // read a line of data from the stream
 	    System.out.println("Received: "+ data) ;
+	    
+	    
 	  }catch (UnknownHostException e) {
 	     System.out.println("Socket:"+e.getMessage());
 	  }catch (EOFException e){
