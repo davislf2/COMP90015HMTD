@@ -22,7 +22,20 @@ public class Connection extends Thread {
 	public void run(){
 		try {           // an echo server
 		     System.out.println("server reading data from client ");
-		     String data = in.readUTF();  // read a line of data from the stream
+		     
+		  // read a line of data from the stream
+		     String data = in.readUTF();  
+		     
+		     
+		     // put switch here?
+		     
+
+		     // modify aS (service object) to do stuffs 
+		     
+		     
+		     // putting stuffs as response
+		     
+		     
 		     System.out.println("server writing data");
 		     out.writeUTF(data);
 		     synchronized(availableServices){

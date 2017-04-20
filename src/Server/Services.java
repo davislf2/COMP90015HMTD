@@ -29,17 +29,17 @@ public class Services {
 		return null;
 		
 	}
-	public void query(Boolean relay, Resource toQuery)
-	{
-	      try{
-		    String name = toQuery.getName();
-		    
-	      }catch(IOException e){
-		    e.printStackTrace();
-	      }
-	      
-	      
-	}
+//	public void query(Boolean relay, Resource toQuery)
+//	{
+//	      try{
+//		    String name = toQuery.getName();
+//		    
+//	      }catch(IOException e){
+//		    e.printStackTrace();
+//	      }
+//	      
+//	      
+//	}
 	public void fetch(Resource toFetch)
 	{
 		
