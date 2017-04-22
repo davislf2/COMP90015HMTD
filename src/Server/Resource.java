@@ -10,8 +10,9 @@ public class Resource {
 	private String ezserver;
 	
 	
-	public Resource(String name, String description, String uri,
-		    String[] tags, String channel, 
+	public Resource(String name, String[] tags,
+		    String description,
+		    String uri, String channel, 
 		    String owner, String ezserver){
 	      this.name = name;
 	      this.tags = tags;
