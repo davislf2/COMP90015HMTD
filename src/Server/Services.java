@@ -3,6 +3,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map.Entry;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.RandomAccessFile;
 
 import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.JsonParseException;
@@ -32,18 +35,26 @@ public class Services {
 		return null;
 		
 	}
-	public void query(Boolean relay, Resource toQuery)
+	public Response query(Boolean relay, Resource toQuery)
 	{
-	    if(relay){
-		  // do client side operation
+	      ArrayList<Resource> matched = getEntry(ResourceList, toQuery);
+	      if(relay){
+		  // do client side operation 
+		  // add the resource returned to the matched
 	    }
-	    ArrayList<Resource> matched = getEntry(ResourceList, toQuery);
+
 	    Response queryResponse = new Response();
 	    queryResponse.setResourceList(matched);
+	    return queryResponse;
 	}
 	public void fetch(Resource toFetch)
 	{
-		
+	      String URI = toFetch.getUri();
+	      File f = new File(URI);
+	      
+	      
+	      
+	      
 	}
 	
 	// Support method for the Query method

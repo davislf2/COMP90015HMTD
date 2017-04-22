@@ -1,6 +1,8 @@
 package Server;
 import java.net.*;
 import java.io.*;
+import java.util.Arrays;
+
 public class Connection extends Thread {
       
       // initialize input output stream
@@ -21,7 +23,7 @@ public class Connection extends Thread {
 	    }
 	public void run(){
 		try {           // an echo server
-		     System.out.println("server reading data from client ");
+		     System.out.println("server reading command from client ");
 		     
 		  // read a line of data from the stream
 		     String data = in.readUTF();  
@@ -36,8 +38,33 @@ public class Connection extends Thread {
 		     // putting stuffs as response
 		     
 		     
-		     System.out.println("server writing data");
+		     // fetch command needs to be done here as it's 
+		     // a connection
+		     String URI = "the uri";
+		     String command = "fetch";
+		     if (command.equals("fetch")){
+			   try {
+				 File f = new File(URI);
+				 RandomAccessFile byteFile = new RandomAccessFile(f,"r");
+				 byte[] sendingBuffer = new byte[1024*1024];
+				 int left;
+				 while((left = byteFile.read(sendingBuffer)) > 0){
+				       System.out.println("file left " + left);
+				       out.write(Arrays.copyOf(sendingBuffer, left));
+				 }
+				 byteFile.close();
+
+			   } catch (FileNotFoundException e) {
+				 // TODO Auto-generated catch block
+				 e.printStackTrace();
+			   }
+
+			   System.out.println("server writing data");
+		     }
+		     // for other commands
+		     else{
 		     out.writeUTF(data);
+		     }
 		     synchronized(availableServices){
 		    	 
 		     }
